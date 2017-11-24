@@ -2,10 +2,11 @@
 
 #include "json.hpp"
 
+
 class Snake
 {
 public:
-  std::string name = "snake_c++";
+  std::string name = "d0rshb0t";
   std::string get_next_move(nlohmann::json map);
   void on_game_ended();
   void on_tournament_ended();

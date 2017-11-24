@@ -6,7 +6,7 @@ TEST_BINARY := bin/test
 
 SRCEXT := cpp
 SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
-OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o)) build/path_finder.o
 CFLAGS := -g -Wall
 LIB := -L lib -lpthread
 INC := -I include
@@ -29,6 +29,9 @@ test: $(TEST_BINARY)
 
 run: $(TARGET)
 	@./$(TARGET)
+
+build/path_finder.o: src/path_finder.h src/path_finder.cc
+	$(CC) $(CFLAGS) $(INC) -c -o build/path_finder.o src/path_finder.cc 
 
 clean:
 	$(RM) -r $(BUILDDIR) $(TARGET)

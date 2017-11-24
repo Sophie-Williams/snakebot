@@ -19,7 +19,7 @@ enum class Direction {
     Up,
     Left,
     Right
-};
+}; 
 
 std::string direction_as_string(const Direction& direction);
 std::tuple<int, int> direction_as_movement_delta(const Direction& direction);
